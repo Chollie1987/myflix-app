@@ -71,15 +71,15 @@ function Navbar() {
         <div style={{display:'flex', justifyContent:'space-between', padding:'20px'}}>
             <img style={{width:'140px', height:'40px'}} src={myflix}/>
               <h2 style={{backgroundColor:'white',fontFamily:'initial', borderRadius:'5px', marginLeft:'30%'}} onSubmit={handleSearchSubmit}>
-                <TextField style={{fontFamily:'initial'}}
+                {/* <TextField style={{fontFamily:'initial'}}
                     value={searchQuery}
                     onChange={handleSearchInputChange}
                     size='small'
                     label="Search for movies"
-                />
-                <Button style={{fontFamily:'initial', fontWeight:'bold'}} type="submit" variant="contained" color="info" >
+                /> */}
+                {/* <Button style={{fontFamily:'initial', fontWeight:'bold'}} type="submit" variant="contained" color="info" >
                     Search
-                </Button>
+                </Button> */}
             </h2>
             <div>
             {auth.currentUser?.emailVerified ? <Button onClick={logout} style={{fontFamily:'initial', margin:'8px'}} color='primary' variant='contained'>Logout</Button>
