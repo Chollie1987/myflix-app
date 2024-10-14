@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Grid, Button, TextField } from '@mui/material';
 import { addDoc, doc, collection, getDocs } from 'firebase/firestore';
@@ -37,7 +37,7 @@ function MovieDetail() {
        }
     }
 
-    const showReview = async() =>{
+    const showReview = useCallback( async() =>{
         try{
          const data = await getDocs(reviewRef)
          const filteredData = data.docs.map((doc)=>({
@@ -48,7 +48,7 @@ function MovieDetail() {
         }catch(err){
             console.error(err)
         }
-    }
+    },[reviewRef])
     useEffect(()=>{
         showReview()
     },[showReview])
@@ -94,7 +94,7 @@ function MovieDetail() {
                     <img 
                     style={{width:'20px', borderRadius:'50px', paddingRight:'8px'}} 
                     src={each.profile_image}
-                    alt='profile image'/>
+                    alt='profile'/>
                     <li style={{color:'#b2882e', fontFamily:'initial', fontSize:'20px'}}>{each.username}</li>
                     </div>
                      <h4 style={{color:'#b2882e', fontFamily:'initial', fontSize:'20px'}}>"{each.movieReview}"</h4>

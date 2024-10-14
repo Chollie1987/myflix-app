@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback} from 'react'
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 
@@ -20,12 +20,12 @@ function Trailer({location, movieId}) {
 
    const api_key=process.env.REACT_APP_API_KEY;
 
-   const showTrailer = ()=>{
+   const showTrailer = useCallback(()=>{
         fetch(`https://api.themoviedb.org/3/movie/${movieId ? movieId : location?.state?.movie?.id}/videos?api_key=${api_key}&language=en-US`)
         .then(res => res.json())
         .then(json => setTrailerView(json.results))
         .catch(err => console.error(err));
-    }
+    },[api_key, location, movieId])
 
     useEffect(()=>{
         showTrailer();
