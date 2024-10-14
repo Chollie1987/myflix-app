@@ -23,7 +23,7 @@ function Home() {
 
     useEffect(() => {
         getMovie()
-    }, [])
+    }, [getMovie])
 
     const addMovie = async(movie) =>{
         console.log(movie)
@@ -40,7 +40,7 @@ function Home() {
         <div style={{backgroundColor:'#06121e', height:''}}>
             <Grid container spacing={2} style={{paddingTop:'20px', paddingRight:'20px', paddingLeft:'20px'}}>
             {movies.map((movie) => {
-                {addMovie(movie)}
+                addMovie(movie)
               return <Grid item xs={3}  key={movie.id}>
                 <Box >
                     <Link to="/movieDetail" state={{movie:movie}}>

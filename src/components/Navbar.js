@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import myflix from '../images/myflix.png';
-import {Button, TextField} from '@mui/material'
+import {Button} from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/setup';
 import { signOut } from 'firebase/auth';
@@ -16,9 +16,9 @@ function Navbar() {
      
     const api_key= process.env.REACT_APP_API_KEY;
     
-    const handleSearchInputChange = (event) => {
-        setSearchQuery(event.target.value);
-    };
+    // const handleSearchInputChange = (event) => {
+    //     setSearchQuery(event.target.value);
+    // };
 
     const handleSearchSubmit = async(event)=>{
         event.preventDefault();
@@ -60,8 +60,8 @@ function Navbar() {
         getMovie()
     }, []);
 
-    const movieTitle = movies.length > 2 ? movies[2]?.original_title : '';
-    const movieOverview = movies.length > 2 ? movies[2]?.overview : '';
+    // const movieTitle = movies.length > 2 ? movies[2]?.original_title : '';
+    // const movieOverview = movies.length > 2 ? movies[2]?.overview : '';
 
 
     console.log(auth.currentUser?.email)
@@ -69,7 +69,10 @@ function Navbar() {
     <div style={{backgroundImage:`linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(https://image.tmdb.org/t/p/original${movies[2]?.poster_path})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize:'cover', height:'500px',width:'100%' }}>
         <ToastContainer autoClose={2000}/>
         <div style={{display:'flex', justifyContent:'space-between', padding:'20px'}}>
-            <img style={{width:'140px', height:'40px'}} src={myflix}/>
+            <img 
+            style={{width:'140px', height:'40px'}} 
+            src={myflix}
+            alt='Myflix logo'/>
               <h2 style={{backgroundColor:'white',fontFamily:'initial', borderRadius:'5px', marginLeft:'30%'}} onSubmit={handleSearchSubmit}>
                 {/* <TextField style={{fontFamily:'initial'}}
                     value={searchQuery}
