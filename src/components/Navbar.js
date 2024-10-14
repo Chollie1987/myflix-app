@@ -12,7 +12,7 @@ import Trailer from './Trailer'
 function Navbar() {
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery] = useState('');
      
     const api_key= process.env.REACT_APP_API_KEY;
     
@@ -58,7 +58,7 @@ function Navbar() {
 
     useEffect(() => {
         getMovie()
-    }, []);
+    }, [getMovie]);
 
     // const movieTitle = movies.length > 2 ? movies[2]?.original_title : '';
     // const movieOverview = movies.length > 2 ? movies[2]?.overview : '';

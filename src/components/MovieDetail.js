@@ -51,7 +51,7 @@ function MovieDetail() {
     }
     useEffect(()=>{
         showReview()
-    },[])
+    },[showReview])
 
     console.log(reviewData)
 
@@ -91,7 +91,10 @@ function MovieDetail() {
                  {reviewData.map((each)=>{
                     return <>
                     <div style={{display:'flex'}}>
-                    <img style={{width:'20px', borderRadius:'50px', paddingRight:'8px'}} src={each.profile_image}/>
+                    <img 
+                    style={{width:'20px', borderRadius:'50px', paddingRight:'8px'}} 
+                    src={each.profile_image}
+                    alt='profile image'/>
                     <li style={{color:'#b2882e', fontFamily:'initial', fontSize:'20px'}}>{each.username}</li>
                     </div>
                      <h4 style={{color:'#b2882e', fontFamily:'initial', fontSize:'20px'}}>"{each.movieReview}"</h4>

@@ -28,8 +28,8 @@ function Trailer({location, movieId}) {
     }
 
     useEffect(()=>{
-        showTrailer()
-    },[])
+        showTrailer();
+    },[showTrailer]);
 
     let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -59,7 +59,7 @@ function Trailer({location, movieId}) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Clips and Trailers</h2>
         {trailerView && trailerView.length > 0 && <YouTube videoId={trailerView[0].key}/>}
        
       </Modal>

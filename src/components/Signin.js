@@ -29,7 +29,10 @@ function Signin() {
   return (
     <div style={{backgroundColor:'#081d35', height:'100vh'}}>
       <ToastContainer autoClose={2000}/>
-      <img style={{width:'200px', padding:'20px'}} src={myflix}/>
+      <img 
+      style={{width:'200px', padding:'20px'}} 
+      src={myflix}
+      alt=''/>
       <div style={{position:'fixed', left:'45%', top:'30%'}}>
       <Button onClick={googleSignIn} variant='contained'>Signin with Google</Button>
       <br/>
