@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback} from 'react';
 import myflix from '../images/myflix.png';
 import {Button} from '@mui/material'
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,7 @@ function Navbar() {
     };
     
 
-    const getMovie = () => {
+    const getMovie = useCallback(() => {
         try {
             fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}`)
             .then(res => res.json())
@@ -40,7 +40,7 @@ function Navbar() {
         } catch (err) {
             console.error(err)
         }
-    }
+    },[api_key])
     
     const logout = async() =>{
         try{
